@@ -20,7 +20,8 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/AutoComplPop' 
+Plugin 'Valloric/YouCompleteMe' 
+Plugin 'Rykka/colorv.vim'
 call vundle#end()
 
 filetype plugin indent on 
@@ -50,6 +51,7 @@ set visualbell
 set background=dark
 let g:gruvbox_contrast_dark = 'dark'
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
 
 let g:rainbow_active = 1
 
@@ -89,6 +91,8 @@ let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 let g:lightline#ale#indicator_ok = "\uf00c "
 
+command SW w !sudo tee "%" > /dev/null
+
 map <C-o> :NERDTreeToggle<CR>
 map <C-l> :so ~/.vimrc<CR>
 noremap <Leader>s :update<CR>
@@ -98,3 +102,5 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+

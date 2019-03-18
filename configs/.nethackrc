@@ -1,0 +1,2 @@
+OPTIONS=windowtype:X11, pickup_burden:unencumbered, pickup_types:$?!/(, autopickup, color
+AUTOPICKUP_EXCEPTION=">chest"
