@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-set termguicolors
+"set termguicolors
 set hidden
 
 let g:ale_completion_enabled = 1
@@ -47,14 +47,22 @@ set list
 
 set ttyfast
 set visualbell
+set t_vb=
 
 set background=dark
 let g:gruvbox_contrast_dark = 'dark'
 colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
+set cursorline
+highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+"hi Normal guibg=NONE ctermbg=NONE
+
+set termguicolors
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
 
 let g:rainbow_active = 1
-
 
 let g:lightline = {
     \ "colorscheme": 'wombat',
@@ -91,7 +99,7 @@ let g:lightline#ale#indicator_warnings = "\uf071 "
 let g:lightline#ale#indicator_errors = "\uf05e "
 let g:lightline#ale#indicator_ok = "\uf00c "
 
-command SW w !sudo tee "%" > /dev/null
+"command SW w !sudo tee "%" > /dev/null
 
 map <C-o> :NERDTreeToggle<CR>
 map <C-l> :so ~/.vimrc<CR>
@@ -103,4 +111,6 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+"let g:gruvbox_termcolors=16
 
+"set t_ut=
