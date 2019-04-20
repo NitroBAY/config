@@ -1,0 +1,30 @@
+* {
+    font: "Mono 30px";
+    text-color: White;
+    background-color: transparent;
+}
+
+#mainbox {
+    background-color: rgba(0, 0, 0, 10%);
+}
+
+window {
+    background-color: rgba(0, 0, 0, 0%);
+    transparency: "real";
+    fullscreen: true;
+    border: 20%;
+    border-color: rgba(0, 0, 0, 10%);
+}
+
+#element {
+    border: 20px;
+    padding: 0 0 0 40px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#element .selected {
+    background-color: rgba(255, 255, 255, 20%);
+}
+

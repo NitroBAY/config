@@ -28,7 +28,25 @@
 "pactl set-sink-mute @DEFAULT_SINK@ toggle"
    XF86AudioMute
 
+# Increase backlight
+"xbacklight -inc 10"
+   XF86MonBrightnessUp
+#
+# Decrease backlight
+"xbacklight -dec 10"
+   XF86MonBrightnessDown
 
+#"systemctl suspend"
+#   Menu
+
+"mpc toggle"
+    XF86AudioPlay
+
+"deepin-screenshot -f"
+    Mod4 + Print
+
+"deepin-screenshot"
+    Mod4 + Shift + Print
 #
 # A list of keys is in /usr/include/X11/keysym.h and in
 # /usr/include/X11/keysymdef.h

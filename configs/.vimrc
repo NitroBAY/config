@@ -1,5 +1,10 @@
 set nocompatible
 filetype off
+set clipboard=unnamedplus
+
+if &shell =~# 'fish$'
+    set shell=sh
+endif
 
 "set termguicolors
 set hidden
@@ -20,9 +25,13 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe' 
 Plugin 'Rykka/colorv.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'AutoComplPop'
+Plugin 'dag/vim-fish'
 call vundle#end()
+
+let g:ale_completion_enabled = 1
 
 filetype plugin indent on 
 set encoding=utf-8
@@ -50,17 +59,21 @@ set visualbell
 set t_vb=
 
 set background=dark
-let g:gruvbox_contrast_dark = 'dark'
+"let g:gruvbox_contrast_dark = 'dark'
 colorscheme gruvbox
 set cursorline
 highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
 autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 set termguicolors
 let &t_8f = "\e[38;2;%lu;%lu;%lum"
 let &t_8b = "\e[48;2;%lu;%lu;%lum"
+"highlight Normal ctermbg=None
+
+set undofile
+set undodir=~/.vim/.undodir
 
 let g:rainbow_active = 1
 
@@ -104,13 +117,13 @@ let g:lightline#ale#indicator_ok = "\uf00c "
 map <C-o> :NERDTreeToggle<CR>
 map <C-l> :so ~/.vimrc<CR>
 noremap <Leader>s :update<CR>
+
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-"let g:gruvbox_termcolors=16
+nnoremap <F5> :GundoToggle<CR>
 
 "set t_ut=
