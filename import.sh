@@ -19,11 +19,11 @@ cp ~/.config/i3/config $exportDir/.config/i3/config
 cp ~/.config/compton/compton.conf $exportDir/.config/compton/compton.conf
 
 
-# Gentoo nethack
 if [ -e ~/.nethackrc ]; then
-    cp ~/.nethackrc ./configs/nethackrc
+    cp ~/.nethackrc $exportDir/.config/.nethackrc
 fi
 
+# Gentoo nethack
 if [ -e /etc/nethackrc ]; then
     cp /etc/nethackrc ./configs/.nethackrc
 fi
